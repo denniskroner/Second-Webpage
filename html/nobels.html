@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Nobel Prize Winners </title>
+    <!--call JavaScript that imports data from winnersById.json file-->
+    <script src="../js/importWinnersById.js"></script>
+    <!--call JavaScript that imports data from prizesByYear.json file-->
+    <script src="../js/importPrizesByYear.js"></script> 
+    <!--call the css style sheet-->
+    <link  rel="stylesheet" href="../css/nobels.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
+    
+</head>
+ 
+    
+<body>
+    <!--loads data and imports all functions written in JavaScript    -->
+    <script src="../js/nobels.js"></script>
+    
+    <!--webpage set up in html -->
+    <header>
+        <p>Nobel Prize</p>
+    </header>
+    
+    
+    <section>
+        <!--filter area-->
+        <nav>
+            <!--min year, max year, category, submit button-->
+            <div id="input">
+                <form>
+                    <!--group input in form-->
+                    <fieldset>
+                        <legend>Select Winners:</legend>
+                                            
+                        <!--input to select max year-->
+                        <p>End Year:</p>
+                        <select id="maxyear">
+                            <!--options to select dynamically created with JavaScript-->
+                        </select>
+
+                        <br>
+
+                        <!--input to select min year-->
+                        <p>Start Year:</p>
+                        <select id="minyear">
+                            <!--options to select dynamically created with JavaScript-->
+                        </select>
+
+                        <br>
+                        <br>
+                        
+                        <!--drop-down list with all categories of nobel prize winners-->
+                        <!--allow multiple selection and 4 values displayed-->
+                        <p>Select Category:</p>
+                        <select id="dropdownCat" size="4" multiple>
+                            <!--options to select dynamically created with JavaScript-->
+                        </select>
+
+                        <br><br>
+                        
+                        <div id="btn">
+                            <!--submit button to display data in output area-->
+                            <button class="button" type="button" onclick ="displayData(prizesArr, winnerArr)">Submit</button>
+                            <!--reset button to bring input back to default-->
+                            <button class="button" type="reset">Reset</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            
+            <!--radio button: global selection for displaying female, male or all winners-->
+            <div id="radio_btn">
+                <form>
+                    <!--group input in form-->
+                    <fieldset>
+                        <legend>Display Gender:</legend>
+                        <!--radio buttons as display option for gender selection of winners-->
+                        <input class="nav_radio" type="radio" name="gender" value="both" onclick="genderSelection(null, null)" checked> <p>Both</p><br> 
+                        <input class="nav_radio" type="radio" name="gender" value="female" onclick="genderSelection(null, 'female')"> <p>Female</p><br>
+                        <input class="nav_radio" type="radio" name="gender" value="male" onclick="genderSelection(null, 'male')"> <p>Male</p>
+                    </fieldset>
+                </form> 
+            </div>
+        </nav>
+        <!--end filter area-->
+
+        <!--output area-->
+        <article>
+            <div id=output_area></div>
+        </article>
+        <!--end output area-->
+    </section>
+    
+    <script>
+        loadSidebar(prizesArr);        
+    </script>
+    <footer>
+        <p>Winners</p>
+    </footer>
+    <!--end webpage set up in html    -->
+</body>
+</html>
